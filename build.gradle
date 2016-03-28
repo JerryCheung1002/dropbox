@@ -1,0 +1,21 @@
+group 'com.ece590'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+//IntelliJ IDEA plugin
+apply plugin: 'idea'
+//war plugin
+apply plugin: 'war'
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.mongodb:mongodb-driver:3.2.2'
+
+    compile "javax.servlet:servlet-api:2.5"
+    compile "javax.servlet.jsp:jsp-api:2.2"
+}

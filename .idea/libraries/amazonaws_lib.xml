@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="amazonaws-lib">
+    <CLASSES>
+      <root url="file://$USER_HOME$/aws-java-sdk-1.10.64/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/aws-java-sdk-1.10.64/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/aws-java-sdk-1.10.64/lib" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/aws-java-sdk-1.10.64/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : com.ece590 : dropbox-1.0-SNAPSHOT.war (exploded)">
+    <output-path>$PROJECT_DIR$/out/artifacts/dropbox/exploded/dropbox-1.0-SNAPSHOT.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="dropbox_main/web/Web Gradle : dropbox-1.0-SNAPSHOT.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dropbox_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.mongodb:mongodb-driver:3.2.2" />
+          <element id="library" level="project" name="Gradle: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Gradle: javax.servlet.jsp:jsp-api:2.2" />
+          <element id="library" level="project" name="Gradle: org.mongodb:mongodb-driver-core:3.2.2" />
+          <element id="library" level="project" name="Gradle: org.mongodb:bson:3.2.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/dropbox/exploded/dropbox-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
