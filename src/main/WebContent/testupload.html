@@ -1,0 +1,163 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dropbox</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/baseValue.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="app2.css" rel="stylesheet">
+
+
+
+	<script>
+		var userEmail = sessionStorage.getItem("currentEmail");
+		console.log(userEmail);
+
+		var loadTable = function() {
+			// load initial data
+
+			$.getJSON(baseValue+'/view/'+userEmail, function(data) {
+				// got data...
+				console.log(data);
+
+				var tbodyjq = $('tbody#to_replace').html("");
+
+				$.each(data.objects_entries, function(index, entry) {
+					var trjq = $('<tr />');
+					tbodyjq.append(trjq);
+
+					// make td (filename)
+					trjq.append($('<td />').text(entry.filename));
+
+					// make td (modified time)
+					trjq.append($('<td />').text(entry.lastmodified));
+
+					// make td (buttons)
+					var actionsTdJq = $('<td />');
+					trjq.append(actionsTdJq);
+
+					var deleteButton = $('<button type="submit" class= "deletionBtn btn btn-info ">delete</button>');
+
+					deleteButton.click(function() {
+						deleteObject(userEmail, entry.filename);
+					});
+					
+					var downloadButton = $('<a href = "'+baseValue+'/download/'+userEmail+"/"+entry.filename+'" class="downloadBtn btn btn-warning">download</a>');
+
+					actionsTdJq.append(deleteButton);
+					actionsTdJq.append(downloadButton);
+				});
+
+			});
+		};
+
+	
+
+
+		var deleteObject = function(user_Email, object_name) {
+
+			console.log('in deleteObject');
+			$.ajax(baseValue+'/deletion/'+user_Email+'/'+object_name, {
+				method: 'DELETE',
+				success: function(data, textStatus, jqXHR) {
+					loadTable();
+				}
+			});
+		};
+
+
+
+
+
+		// on document ready
+		$(function() {
+			loadTable();
+		});
+
+
+	</script>
+</head>
+<body class="home-template">
+<header class="main-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="image/download.jpg">
+				<h1>DropBox</h1>
+			</div>
+		</div>
+	</div>
+</header>
+<section class="content warp">
+	<div class="container">
+		<div class="row">
+			<main class="main-content col-md-8">
+				<table class="table table-striped">
+					<caption>...</caption>
+					<thead>
+					<tr>
+						<th colspan="1">
+							<h4> Name</h4>
+						</th>
+						<th colspan="1">
+							<h4>Latest modification date</h4>
+						</th>
+						<th colspan="1">
+							<h4>actions</h4>
+						</th>
+					</tr>
+					</thead>
+					<tbody id="to_replace">
+
+					</tbody>
+				</table>
+			</main>
+			<aside class="col-md-4 sidebar">
+				<div class="widget">
+					<div class = "row">
+						<div>
+							<i class="fa fa-folder-open fa-5x"></i>
+						</div>
+						<form  id = "formUp" method="post" enctype="multipart/form-data">
+
+							<p>
+								Select a file : <input type="file" name="file" size="45" />
+							</p>
+							<input type="submit" id ="upBtn" value="Upload It" />
+<script>
+	var userEmail = sessionStorage.getItem("currentEmail");
+
+
+	$("#upBtn").click(function () {
+		var action = baseValue + "/upload?email=" + userEmail;
+		$("#formUp").attr("action", action);
+
+	});
+
+
+</script>
+						</form>
+					</div>
+				</div>
+
+			</aside>
+		</div>
+
+	</div>
+
+</section>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all complied plugins (below), or inlcude individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
+
+</body>
+</html>

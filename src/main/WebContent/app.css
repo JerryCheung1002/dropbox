@@ -1,0 +1,37 @@
+h1,button{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.headwrapper{
+    background-color: orangered;
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+}
+.headh1content{
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    margin-top: 150px;
+    line-height: 75px;
+}
+.form-horizontal{
+    text-align: center;
+
+}
+.form-contents{
+    margin-top: 100px;
+}
+.password{
+margin-top: 15px;
+}
+.remember-me{
+    margin-top: 10px;
+}
+.form-contents .row{
+    margin-top: 20px;
+}
+.form-contents .row .btn{
+    width: 100px;
+}

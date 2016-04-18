@@ -1,0 +1,33 @@
+html,body{
+    color: #505050;
+    line-height: 1.75em;
+    background: #ebebeb;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.main-header{
+    text-align: center;
+    padding: 42px 0;
+    background: #ffffff;
+}
+.main-header img{
+    max-width: 100%;
+    width: 80px;
+    height: 80px;
+}
+.main-header h1{
+    color: #eea236;
+}
+.table h4{
+    text-align: center;
+}
+.table tbody td{
+    text-align: center;
+}
+.sidebar .widget{
+text-align: center;
+    margin-top: 80px;
+    padding: 50px 30px;
+}
+.sidebar #file{
+text-align: center;
+}

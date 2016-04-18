@@ -1,0 +1,10 @@
+.headWrapper{
+    background-color: crimson;
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+}
+.registerForm{
+    margin-top: 150px;
+
+}

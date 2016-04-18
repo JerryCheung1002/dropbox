@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jaxrs-ri">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../jaxrs-ri" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

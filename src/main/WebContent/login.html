@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>welcome</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+
+	<!-- Latest compiled and minified JavaScript -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="app.css" rel="stylesheet">
+	<script src="js/baseValue.js"></script>
+</head>
+<body>
+
+<div class = "headwrapper">
+	<div class="row">
+		<div class="contents col-md-8 col-md-offset-2">
+			<h1 class="headh1content">
+				Welcome to your drop box
+			</h1>
+
+			<div class = "form-contents col-md-4 col-md-offset-4">
+				<form class="form-horizontal">
+
+					<div class="email">
+						<div class="input-group margin-bottom-sm">
+							<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+							<input class="form-control" id="inputEmail" type="text" placeholder="Email address">
+						</div>
+					</div>
+					<div class="password">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+							<input class="form-control" id="inputPassword" type="password" placeholder="Password">
+						</div>
+					</div>
+					<div class="remember-me">
+						<div class="controls">
+							<label class="checkbox">
+								<input type="checkbox"> Remember me
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 col-md-offset-1" >
+							<input type="button" class="btn btn-success" value="Login" onclick="authenticate()"/>
+
+						</div>
+						<div class="col-md-3 col-md-offset-2">
+							<input type="button" class="btn btn-warning" value="Sign up" onclick="location.href='register0.html'"/>
+
+						</div>
+					</div>
+					<script>
+		function authenticate() {
+			var httpRequest = new XMLHttpRequest();
+			var email = document.getElementById("inputEmail").value;
+			var password = document.getElementById("inputPassword").value;
+			var url = baseValue+"/authentication/" + email + "/" + password;
+			httpRequest.open('GET', url, true);
+			httpRequest.send(null);
+			httpRequest.onreadystatechange = function() {
+				if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+					var response = eval("(" + httpRequest.responseText + ")");
+					if (response.message == "success") {
+
+						window.location = 'testupload.html';
+						sessionStorage.setItem("currentEmail",email);
+					}
+					else {
+						window.alert("Username and password error!");
+					}
+				}
+			}
+		}
+		</script>
+	</form>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all complied plugins (below), or inlcude individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-2.2.3.min.js"></script>
+</body>
+</html>

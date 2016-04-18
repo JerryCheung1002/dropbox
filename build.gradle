@@ -8,6 +8,24 @@ apply plugin: 'idea'
 apply plugin: 'war'
 sourceCompatibility = 1.5
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement {
+    imports {
+        mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+    }
+}
+
+
 repositories {
     mavenCentral()
 }
@@ -18,4 +36,13 @@ dependencies {
 
     compile "javax.servlet:servlet-api:2.5"
     compile "javax.servlet.jsp:jsp-api:2.2"
+    compile "javax.ws.rs:jsr311-api:1.1.1"
+    compile 'com.sun.jersey:jersey-server:1.19'
+    compile 'com.sun.jersey:jersey-core:1.19'
+    compile 'com.sun.jersey:jersey-servlet:1.19'
+    compile 'com.sun.jersey:jersey-bundle:1.19'
+    compile 'com.sun.jersey.contribs:jersey-multipart:1.19'
+    compile 'com.amazonaws:aws-java-sdk:1.10.64'
+    //compile 'org.jvnet:mimepull:1.6'
+    //compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.22.2'
 }

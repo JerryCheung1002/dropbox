@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dropbox Sign up</title>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="app3.css" rel="stylesheet">
+	<script src="js/baseValue.js"></script>
+</head>
+
+<body>
+<div class = "headWrapper">
+	<form class="registerForm col-md-4 col-md-offset-4">
+		<fieldset class="form-group">
+			<label for="inputFirstName">First Name</label>
+			<input type="text" class="form-control" id="inputFirstName" placeholder="First Name"/>
+		</fieldset>
+		<fieldset class="form-group">
+			<label for="inputLastName">Last Name</label>
+			<input type="text" class="form-control" id="inputLastName" placeholder="Last Name"/>
+		</fieldset>
+		<fieldset class="form-group">
+			<label for="inputEmail">Email</label>
+			<input type="email" class="form-control" id="inputEmail" placeholder="Enter email"/>
+		</fieldset>
+		<fieldset class="form-group">
+			<label for="inputPassword">Password</label>
+			<input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+		</fieldset>
+		<input type="button" class="btn btn-info" value="Register" onclick="register()"/>
+		<script>
+		function register() {
+			var httpRequest = new XMLHttpRequest();
+			var firstname = document.getElementById("inputFirstName").value;
+			var lastname = document.getElementById("inputLastName").value;
+			var email = document.getElementById("inputEmail").value;
+			var password = document.getElementById("inputPassword").value;
+			var url = baseValue+"/registeration/" + firstname + "/" + lastname + "/" + email + "/" + password;
+			httpRequest.open('POST', url, true);
+			httpRequest.send(null);
+			httpRequest.onreadystatechange = function() {
+				if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+					var response = eval("(" + httpRequest.responseText + ")");
+					if (response.message == "success") {
+						window.location = 'login.html';
+					}
+					else {
+						window.location = 'register0.html';
+					}
+				}
+			}
+		}
+		</script>
+	</form>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all complied plugins (below), or inlcude individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-2.2.3.min.js"></script>
+</body>
+</html>
