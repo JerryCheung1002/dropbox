@@ -1,4 +1,4 @@
-# dropbox
+# Dropbox-like Web Application
 Course project of ECE590 - Cloud Computing<br />
 1. Implemented the RESTful architecture of back-end with Jersey REST API.<br />
 2. Implemented user and file management  system with MongoDB.<br />
