@@ -1,7 +1,5 @@
 # dropbox
-Course project of cloud computing course
--Implemented a Dropbox-like web application including both front-end and back-end.
--Implemented the RESTful architecture of back-end with Jersey REST API.
--Implemented user and file management  system with MongoDB.
--Implemented user storage system with AWS S3.
--Implemented front-end with jQuery and Bootstrap.
+Course project of ECE590 - Cloud Computing course<br />
+1. Implemented the RESTful architecture of back-end with Jersey REST API.<br />
+2. Implemented user and file management  system with MongoDB.<br />
+3. Implemented user storage system with AWS S3.<br />
